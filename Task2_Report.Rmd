@@ -1,0 +1,80 @@
+---
+title: "Task 2 – Trial vs Control Store Analysis"
+author: "Geraldine Nyika"
+output:
+  pdf_document:
+    latex_engine: xelatex
+editor_options:
+  markdown:
+    wrap: 72
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+library(here)
+```
+# Objective
+
+The objective of this analysis is to assess whether the in-store trial led to
+improved sales performance by comparing trial stores with carefully selected
+control stores.
+
+## Control store selection
+
+Control stores were selected based on similarity in pre-trial performance. Key
+metrics used for comparison included weekly sales, number of customers, and
+number of transactions. Stores with the highest correlation across these metrics
+during the pre-trial period were selected as control stores.
+
+## Trial vs Control Performance — Store 77
+```{r store77_plot, fig.cap="Weekly Sales: Trial Store 77 vs Control Store 254", out.width="100%"}
+img_77 <- here(
+  "outputs", "task2_trial_vs_control", "visuals",
+  "Weekly Sales - Store 77 vs Control 254.png"
+)
+
+if (!file.exists(img_77)) {
+  cat("Image not found:\n", img_77, "\n")
+} else {
+  knitr::include_graphics(img_77)
+}
+```
+Based on results, Trial Store 77 demonstrated higher average weekly sales during the trial period compared to its control store. The divergence following the start of the trial suggests that the trial had a positive impact on sales performance.
+
+## Trial vs Control Performance — Store 86 
+```{r store86_plot, fig.cap="Weekly Sales: Trial Store 86 vs Control Store 31", out.width="100%"}
+img_86 <- here(
+  "outputs", "task2_trial_vs_control", "visuals",
+  "Weekly Sales - Store 86 vs Control 31.png"
+)
+
+if (!file.exists(img_86)) {
+  cat("Image not found:\n", img_86, "\n")
+} else {
+  knitr::include_graphics(img_86)
+}
+```
+Based on results, Trial Store 86 showed a moderate uplift in weekly sales during the trial period, though the effect was less pronounced than that observed in Store 77.
+
+## Trial vs Control Performance — Store 88 
+```{r store88_plot, fig.cap="Weekly Sales: Trial Store 88 vs Control Store 85", out.width="100%"}
+img_88 <- here(
+  "outputs", "task2_trial_vs_control", "visuals",
+  "Weekly Sales - Store 88 vs Control 85.png"
+)
+
+if (!file.exists(img_88)) {
+  cat("Image not found:\n", img_88, "\n")
+} else {
+  knitr::include_graphics(img_88)
+}
+```
+Based on results, Trial Store 88 did not demonstrate a sustained improvement over its control store during the trial period, suggesting limited trial effectiveness at this location.
+
+# Recommendation 
+Based on results: The trial was successful in Store 77 and should be considered for wider rollout. Store 86 showed some positive impact and may benefit from further optimisation. Store 88 did
+not show meaningful improvement and should not be prioritised for rollout without adjustments.
+
+# Conclusion 
+This analysis provides evidence that the trial had varying impacts across stores. Careful control store selection and store-specific evaluation ensured reliable insights into trial effectiveness.
